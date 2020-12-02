@@ -50,19 +50,18 @@ def reduce(newHash, reduceNumber):
     return newHash
 
 def check(target, rainDict):
-    for firstKey, value in rainDict.items():
-        i = 7
+    i = 7
 
-        while i >= 0:
-            reduceHash = reduce(target, i)
+    while i >= 0:
+        reduceHash = reduce(target, i)
 
+        for firstKey, value in rainDict.items():
             if reduceHash == value:
                 # print("Hash found ! Searching password...")
 
                 if searchPassword(firstKey, target): # Une fois le hash trouvé, on cherche le mdp
                     return True
-
-            i-=1 
+        i-=1 
 
     print("No password found !")
     return False
