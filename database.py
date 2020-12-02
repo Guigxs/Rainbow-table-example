@@ -9,7 +9,7 @@ def new_password_entry():
         password1 = input("Password : ")
         password2 = input("Confirm Password : ")
         if( password1 == password2 ):
-            if re.match(r'[a-z]{3}', password1 ):
+            if re.match(r'[a-z]{3}$', password1 ):
                 password = nthash.hash(password1)
                 return (user_name,password)
             else:
